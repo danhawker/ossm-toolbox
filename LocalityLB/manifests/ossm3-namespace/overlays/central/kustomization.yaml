@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+# Inherit base
+- ../../base/
+# Pull in certs for central
+- ../../../../certs/central/
+
+patches:
+  - path: patch-istio-system-namespace-labels.yaml
+    target:
+      name: istio-system
+      kind: Namespace
+      version: v1
+  - path: patch-banner.yaml
+    target:
+      group: console.openshift.io
+      name: banner
+      kind: ConsoleNotification
+      version: v1
+

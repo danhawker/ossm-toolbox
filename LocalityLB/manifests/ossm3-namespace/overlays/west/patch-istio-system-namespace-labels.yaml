@@ -1,0 +1,3 @@
+- op: add
+  path: "/metadata/labels/topology.istio.io~1network"
+  value: "network2"

@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/namespace
+  value: istio-system
+- op: replace
+  path: /spec/version
+  value: v1.24.1

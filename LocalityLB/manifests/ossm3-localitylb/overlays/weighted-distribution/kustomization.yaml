@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: sample
+
+resources:
+# Inherit base
+  - ../../base/
+
+# Add Weighted Distribution
+patches:
+  - path: make-weighted-distribution.yaml
+#    target:
+#      name: helloworld-dest-rule
+#      kind: DestinationRule
+#      version: v1
+#      group: networking.istio.io
+

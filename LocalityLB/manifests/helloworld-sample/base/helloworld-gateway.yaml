@@ -1,0 +1,35 @@
+apiVersion: networking.istio.io/v1
+kind: Gateway
+metadata:
+  name: helloworld-gateway
+  namespace: sample
+spec:
+  selector:
+    istio: eastwestgateway # use eastwest?
+  servers:
+  - port:
+      number: 8080
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: helloworld
+  namespace: sample
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - helloworld-gateway
+  http:
+  - match:
+    - uri:
+        exact: /hello
+    route:
+    - destination:
+        host: helloworld
+        port:
+          number: 5000

@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+# Inherit base
+  - ../../base/
+# East-West Gateway (network1, cluster1, central)
+  - east-west-gw-net1.yaml
+
+patches:
+  - path: patch-istio-system-namespace-labels.yaml
+    target:
+      name: istio-system
+      kind: Namespace
+      version: v1
+

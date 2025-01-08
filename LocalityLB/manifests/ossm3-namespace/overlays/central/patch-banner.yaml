@@ -1,0 +1,12 @@
+- op: replace
+  path: "/metadata/name"
+  value: "central-banner"
+- op: replace
+  path: "/spec/text"
+  value: 'CENTRAL'
+- op: replace
+  path: "/spec/color"
+  value: '#fff'
+- op: replace
+  path: "/spec/backgroundColor"
+  value: '#ee0000'

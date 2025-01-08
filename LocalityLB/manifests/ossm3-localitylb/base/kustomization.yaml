@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: sample
+
+resources:
+  # Add Basic Outlier Destination Rule
+  # This should keep local traffic to the cluster(s)
+  - failover-outlier-destination-rule.yaml
+
+  # Add distributed localityLB Ruke
+  # This should spread the traffic between West/Central 90/10 
+  #- weighted-destination-rule.yaml
+
+  # Add failoverPriority LocalityLB Rule
+  # This should prioritise traffic to the mesh network and failover correctly
+  # when failover occurs. Not sure this is useful in my cluster, as it also says
+  # its for groups of endpoints.
+  #- failover-priority-destination-rule.yaml

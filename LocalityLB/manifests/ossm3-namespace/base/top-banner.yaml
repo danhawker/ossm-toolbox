@@ -1,0 +1,9 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: banner
+spec:
+  text: patchme
+  location: BannerTop 
+  color: patchme
+  backgroundColor: patchme

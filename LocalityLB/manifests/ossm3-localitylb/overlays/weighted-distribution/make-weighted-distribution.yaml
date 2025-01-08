@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: helloworld-dest-rule
+spec:
+  trafficPolicy:
+    loadBalancer:
+      localityLbSetting:
+        enabled: true
+        distribute:
+        - from: eu-west-1/eu-west-1c/*
+          to:
+            "eu-west-1/eu-west-1c/*": 90
+            "eu-central-1/eu-central-1b/*": 10

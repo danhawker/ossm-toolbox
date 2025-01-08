@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+
+patches:
+- path: patch-istio-mesh.yaml
+  target:
+    group: sailoperator.io
+    kind: Istio
+    name: default
+    version: v1alpha1
+- path: patch-istio-cni.yaml
+  target:
+    group: sailoperator.io
+    kind: IstioCNI
+    name: default
+    version: v1alpha1
+- path: patch-istio-mesh-west-values.yaml
+  target:
+    group: sailoperator.io
+    kind: Istio
+    name: default
+    version: v1alpha1

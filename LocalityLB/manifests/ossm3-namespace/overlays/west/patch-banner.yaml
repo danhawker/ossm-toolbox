@@ -1,0 +1,12 @@
+- op: replace
+  path: "/metadata/name"
+  value: "west-banner"
+- op: replace
+  path: "/spec/text"
+  value: 'WEST'
+- op: replace
+  path: "/spec/color"
+  value: '#000'
+- op: replace
+  path: "/spec/backgroundColor"
+  value: '#37a3a3'
