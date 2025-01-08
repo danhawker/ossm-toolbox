@@ -53,7 +53,7 @@ A root CA and two intermediate CAs (one for each cluster) must be created and de
 
 Follow the instructions in the upstream documentation above or use an existing PKI/CA, to create a root CA and intermediate certs for each cluster, and place them in the cluster specific directory within the `certs` directory. These certificates will be used by the `kustomization.yaml` to create a kubernetes secret `cacerts` within the `istio-system` namespace in the next section.
 
-### `ossm-namespaces` - Core Namespaces
+### `ossm3-namespaces` - Core Namespaces
 
 OSSM3 doesn't mandate any namespace names to use, but the usual convention is to use `istio-system` and `istio-cni`. These manifests create and label the namespaces and creates the `cacerts` secret populated by the certs above. It also adds a console banner to each cluster displaying the Cluster Name, to make it easier to identify when using the UI.
 
